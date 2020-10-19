@@ -20,11 +20,11 @@
 #include <iostream>
 
 size_t binsearch(int array[], size_t len, int target){
-	unsigned int low = 0;
-	unsigned int high = len - 1;
+	size_t low = 0;
+	size_t high = len - 1;
 
 	while (low <= high) { 
-		const unsigned int middle = ((high - low) / 2) + low;
+		const size_t middle = ((high - low) / 2) + low;
 		if (middle >= len || middle < 0)
 			break;
 
