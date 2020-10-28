@@ -1,1 +1,1 @@
-g++ -Wall -Werror -pedantic -o main.elf main.cpp
+g++ main.cpp -o main ping.cpp pong.cpp
