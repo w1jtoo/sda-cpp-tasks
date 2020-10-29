@@ -2,4 +2,4 @@
 #pragma once
 #include "ping.h"
 
-void pong(int depth);
+extern void pong(int depth);
