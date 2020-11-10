@@ -37,3 +37,10 @@
 
 # google test folder
 googletest
+
+# bin files folder
+bin/
+
+# .vscode folder
+.vscode/
+
