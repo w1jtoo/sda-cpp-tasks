@@ -3,9 +3,11 @@
 g++ -c -Wall -Werror -fpic -o ./bin/ping.o ping.cpp
 g++ -c -Wall -Werror -fpic -o ./bin/pong.o pong.cpp
 
-g++ -g -Wall -shared ./bin/ping.o -o ./bin/libping.so
-g++ -g -Wall -shared ./bin/pong.o -o ./bin/libpong.so
+g++  -shared -Wl,--out-implib=./bin/pong.lib -o ./bin/libpong.so ./bin/pong.o
+g++  -shared -Wl,--out-implib=./bin/ping.lib -o ./bin/libping.so ./bin/ping.o
 
+g++  -shared -Wl,--out-implib=./bin/pong.lib -o ./bin/libpong.so ./bin/pong.o ./bin/ping.lib
+g++  -shared -Wl,--out-implib=./bin/ping.lib -o ./bin/libping.so ./bin/ping.o ./bin/pong.lib
 
 sudo cp ./bin/libping.so /usr/lib
 sudo chmod 755 /usr/lib/libping.so 

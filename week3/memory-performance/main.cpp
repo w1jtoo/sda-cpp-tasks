@@ -62,13 +62,13 @@ void stack_array_allocation(void) {
 	print_sum(a);
 }
 
-void heap_array_allocation(void) {
+inline void heap_array_allocation(void) {
 	int* a = new int[10]();
 	print_sum(a);
 	delete a;
 }
 
-void print_sum(int array[10]) {
+inline void print_sum(int array[10]) {
 	sum = 0;
 	for(int i = 0; i < 10; ++i) { 
 		sum += array[i];
