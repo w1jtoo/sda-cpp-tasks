@@ -112,18 +112,23 @@ std::vector<std::string> Tokenizer::tokenize(const std::string &str)
 		}
 	}
 
-	if (tokens.size() == 0)
-		return result_tokens;
-
-	result_tokens.push_back(result_tokens[0]);
-
-	for (size_t i = 1; i < tokens.size(); i++)
+	std::stringstream sss;
+	for (size_t i = 0; i < tokens.size(); i++)
 	{
-		if (_constants.is_digit(tokens[i - 1]) && _constants.is_digit(tokens[i]))
+		std::cout << "l";
+		if (_constants.is_digit(tokens[i]))
 		{
-			result_tokens[i - 1] += result_tokens[i];
+			sss << result_tokens[i];
 		}
-		result_tokens.push_back(tokens[i - 1]);
+		else
+		{
+			auto s = sss.str();
+			if (!s.empty())
+				result_tokens.push_back(sss.str());
+
+			result_tokens.push_back(tokens[i]);
+			sss.clear();
+		}
 	}
 
 	return result_tokens;
