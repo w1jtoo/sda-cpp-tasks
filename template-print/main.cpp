@@ -1,32 +1,13 @@
-/*
- * =====================================================================================
- *
- *       Filename:  main.cpp
- *
- *        Version:  1.0
- *        Created:  11/28/2020 08:33:39 PM
- *       Compiler:  gcc
- *
- *         Author:  w1jtoo 
- *
- * =====================================================================================
- */
 #include <stdlib.h>
 #include <iostream>
-#include <stdio.h>
-
-template <class F, class... Args> 
-void for_each_argument(F f, Args&&... args) {
-    [](...){}((f(std::forward<Args>(args)), 0)...);
-}
+#include <vector>
 
 template<class... Args>
 void print(Args... args) {
-        const size_t nargs = sizeof...(args);
-    X x_array[nargs];
-
-    X *x = x_array;
-    int unused[]{(f(*x++, args), 1)...};
+    std::vector<int> numbers = {args...};
+   for (unsigned i = 0; i < numbers.size(); ++i) {
+       std::cout << numbers[i] << " ";
+   }
     std::cout << std::endl;
 }
 
